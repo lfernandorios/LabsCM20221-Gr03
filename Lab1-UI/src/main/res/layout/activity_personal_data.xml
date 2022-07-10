@@ -2,21 +2,23 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="@string/label_escolaridad"
     tools:context=".PersonalDataActivity">
 
     <ImageView
         android:id="@+id/iconNombres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/hint_nombres"
         app:srcCompat="@drawable/ic_baseline_account"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="48dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nombres_layout_text"
-        android:layout_width="355dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_nombres"
         tools:layout_editor_absoluteX="40dp"
@@ -27,20 +29,22 @@
             android:id="@+id/nombres_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textNoSuggestions|textCapWords" />
+            android:inputType="textNoSuggestions|textCapWords"
+            android:textColorHint="#616161" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/iconApellidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/hint_apellidos"
         app:srcCompat="@drawable/ic_baseline_account_box"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="104dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/apellidos_layout_text"
-        android:layout_width="355dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/hint_apellidos"
         tools:layout_editor_absoluteX="40dp"
@@ -51,7 +55,8 @@
             android:id="@+id/apellidos_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textNoSuggestions|textCapWords" />
+            android:inputType="textNoSuggestions|textCapWords"
+            android:textColorHint="#616161" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.helper.widget.Flow
@@ -65,7 +70,6 @@
         android:paddingBottom="@dimen/margin_wide"
         app:constraint_referenced_ids="iconNombres,nombres_layout_text,iconApellidos,apellidos_layout_text"
         app:flow_maxElementsWrap="2"
-        app:flow_verticalStyle="spread"
         app:flow_wrapMode="chain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:baselineAligned="false"
+        android:contentDescription="@string/label_sexo"
+        app:layout_constraintStart_toStartOf="@+id/flowSexo"
         app:srcCompat="@drawable/ic_baseline_genero"
         tools:layout_editor_absoluteY="12dp" />
 
@@ -85,40 +91,65 @@
         android:id="@+id/sexo_label_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginEnd="@dimen/margin_wide"
         android:layout_weight="1"
         android:baselineAligned="false"
         android:text="@string/label_sexo"
+        app:layout_constraintEnd_toStartOf="@+id/rdSexo"
+        app:layout_constraintStart_toEndOf="@+id/iconSexo"
         tools:layout_editor_absoluteY="14dp" />
 
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rbMujer"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/rdSexo"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:baselineAligned="false"
-        android:text="@string/rb_text_mujer" />
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginEnd="@dimen/margin_wide"
+        app:layout_constraintEnd_toEndOf="@id/flowSexo"
+        app:layout_constraintStart_toEndOf="@+id/sexo_label_text"
+        tools:layout_editor_absoluteY="175dp">
 
-    <com.google.android.material.radiobutton.MaterialRadioButton
-        android:id="@+id/rbHombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:baselineAligned="false"
-        android:text="@string/rb_text_hombre" />
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rbMujer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:text="@string/rb_text_mujer" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rbHombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:text="@string/rb_text_hombre" />
+
+    </RadioGroup>
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flowSexo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_wide"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/margin_wide"
         android:layout_marginEnd="@dimen/margin_wide"
         android:orientation="horizontal"
-        app:constraint_referenced_ids="iconSexo,sexo_label_text,rbMujer,rbHombre"
-        app:flow_wrapMode="chain"
+        app:constraint_referenced_ids="iconSexo,sexo_label_text,rdSexo"
+        app:flow_wrapMode="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/flowDatos" />
+
+    <ImageView
+        android:id="@+id/iconEscolaridad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/label_escolaridad"
+        app:srcCompat="@drawable/ic_baseline_school"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="431dp" />
 
     <TextView
         android:id="@+id/escolaridad_label_text"
@@ -136,6 +167,7 @@
         android:layout_height="wrap_content"
         android:dropDownWidth="match_parent"
         android:entries="@array/escolaridad_array"
+        android:minHeight="48dp"
         android:spinnerMode="dropdown"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="691dp">
@@ -147,13 +179,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginTop="@dimen/margin_wide"
         android:layout_marginEnd="@dimen/margin_wide"
         android:layout_marginBottom="@dimen/margin_wide"
-        app:constraint_referenced_ids="escolaridad_label_text,spinnerEscolaridad"
+        app:constraint_referenced_ids="iconEscolaridad,escolaridad_label_text,spinnerEscolaridad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/flowSexo" />
+        app:layout_constraintTop_toBottomOf="@id/flowSexo"
+        app:layout_constraintVertical_bias="0.100000024" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
