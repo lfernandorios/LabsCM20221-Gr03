@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">LabsCM20221-Gr03</string>
+    <string name="label_personal_data">Información Personal</string>
+    <string name="hint_nombres">Nombres:</string>
+    <string name="hint_apellidos">Apellidos:</string>
+    <string name="rb_text_mujer">Mujer</string>
+    <string name="rb_text_hombre">Hombre</string>
+    <string name="label_sexo">Sexo:</string>
+    <string name="label_escolaridad">Escolaridad:</string>
+
+    <string-array name="escolaridad_array">
+        <item>Primaria</item>
+        <item>Secundaria</item>
+        <item>Técnica</item>
+        <item>Tecnológica</item>
+        <item>Universitaria</item>
+        <item>Postgrado</item>
+        <item>Otra</item>
+    </string-array>
 </resources>

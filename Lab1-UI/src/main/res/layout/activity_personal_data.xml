@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".PersonalDataActivity">
+
+    <ImageView
+        android:id="@+id/iconNombres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_account"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="48dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nombres_layout_text"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_nombres"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="32dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nombres_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions|textCapWords" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/iconApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_account_box"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="104dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/apellidos_layout_text"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_apellidos"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="88dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/apellidos_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textNoSuggestions|textCapWords" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowDatos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginEnd="@dimen/margin_wide"
+        android:paddingTop="@dimen/margin_wide"
+        android:paddingBottom="@dimen/margin_wide"
+        app:constraint_referenced_ids="iconNombres,nombres_layout_text,iconApellidos,apellidos_layout_text"
+        app:flow_maxElementsWrap="2"
+        app:flow_verticalStyle="spread"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iconSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        app:srcCompat="@drawable/ic_baseline_genero"
+        tools:layout_editor_absoluteY="12dp" />
+
+    <TextView
+        android:id="@+id/sexo_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:text="@string/label_sexo"
+        tools:layout_editor_absoluteY="14dp" />
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/rbMujer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:text="@string/rb_text_mujer" />
+
+    <com.google.android.material.radiobutton.MaterialRadioButton
+        android:id="@+id/rbHombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:text="@string/rb_text_hombre" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowSexo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/margin_wide"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="iconSexo,sexo_label_text,rbMujer,rbHombre"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flowDatos" />
+
+    <TextView
+        android:id="@+id/escolaridad_label_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:text="@string/label_escolaridad"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="694dp" />
+
+    <Spinner
+        android:id="@+id/spinnerEscolaridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:dropDownWidth="match_parent"
+        android:entries="@array/escolaridad_array"
+        android:spinnerMode="dropdown"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="691dp">
+
+    </Spinner>
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowEscolaridad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginEnd="@dimen/margin_wide"
+        android:layout_marginBottom="@dimen/margin_wide"
+        app:constraint_referenced_ids="escolaridad_label_text,spinnerEscolaridad"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flowSexo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
