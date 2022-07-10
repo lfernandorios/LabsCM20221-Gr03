@@ -7,8 +7,9 @@
     <string name="rb_text_hombre">Hombre</string>
     <string name="label_sexo">Sexo:</string>
     <string name="label_escolaridad">Escolaridad:</string>
-
+    <string name="bt_siguiente">Siguiente</string>
     <string-array name="escolaridad_array">
+        <item>(Seleccionar)</item>
         <item>Primaria</item>
         <item>Secundaria</item>
         <item>Técnica</item>
