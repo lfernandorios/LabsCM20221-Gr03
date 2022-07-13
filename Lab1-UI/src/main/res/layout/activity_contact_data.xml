@@ -8,24 +8,27 @@
     tools:context=".ContactDataActivity">
 
     <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowContacto"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/margin_wide"
         android:layout_marginTop="@dimen/margin_wide"
         android:layout_marginEnd="@dimen/margin_wide"
         android:layout_marginBottom="@dimen/margin_wide"
-        android:orientation="vertical"
-        app:constraint_referenced_ids="telefono_edit_text,autoCompleteTextView2,editTextTextEmailAddress,autoCompleteTextView"
+        android:orientation="horizontal"
+        app:constraint_referenced_ids="telefono_edit_text,email_edit_text,pais_auto_edit_text,cuidad_auto_edit_text,direccion_edit_text"
         app:flow_maxElementsWrap="2"
+        app:flow_verticalStyle="spread"
         app:flow_wrapMode="chain"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navInferior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/telefono_edit_text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Télefono"
@@ -33,29 +36,59 @@
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="219dp" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView2"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="AutoCompleteTextView"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="329dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/pais_auto_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="País"
         tools:layout_editor_absoluteX="129dp"
         tools:layout_editor_absoluteY="506dp" />
 
     <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
-        android:layout_width="wrap_content"
+        android:id="@+id/cuidad_auto_edit_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="AutoCompleteTextView"
+        android:hint="Ciudad"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="433dp" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
+        android:id="@+id/direccion_edit_text"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="329dp" />
+        android:gravity="start|top"
+        android:hint="Dirección"
+        android:inputType="textMultiLine|textNoSuggestions"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="518dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navInferior"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginEnd="@dimen/margin_wide"
+        android:layout_marginBottom="@dimen/margin_wide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btSiguiente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_siguiente" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
