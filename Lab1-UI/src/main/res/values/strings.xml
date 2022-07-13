@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">LabsCM20221-Gr03</string>
     <string name="label_personal_data">Información Personal</string>
+    <string name="label_conctacto_data">Información de Contacto</string>
     <string name="hint_nombres">Nombres:</string>
     <string name="hint_apellidos">Apellidos:</string>
     <string name="rb_text_mujer">Mujer</string>
@@ -8,6 +9,8 @@
     <string name="label_sexo">Sexo:</string>
     <string name="label_escolaridad">Escolaridad:</string>
     <string name="bt_siguiente">Siguiente</string>
+    <string name="label_fecha_nacimiento">Fecha Nacimiento</string>
+    <string name="bt_cambiar_fecha">Cambiar</string>
     <string-array name="escolaridad_array">
         <item>(Seleccionar)</item>
         <item>Primaria</item>

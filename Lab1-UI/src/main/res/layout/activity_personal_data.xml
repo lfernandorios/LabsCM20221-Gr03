@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clPersonalData"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="@string/label_escolaridad"
@@ -164,6 +165,7 @@
         tools:layout_editor_absoluteX="206dp"
         tools:layout_editor_absoluteY="694dp" />
 
+
     <Spinner
         android:id="@+id/spinnerEscolaridad"
         android:layout_width="0dp"
@@ -177,19 +179,58 @@
 
     </Spinner>
 
+    <ImageView
+        android:id="@+id/iconCalendario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/label_fecha_nacimiento"
+        app:srcCompat="@drawable/ic_baseline_date"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="292dp" />
+
+    <EditText
+        android:id="@+id/fecha_nac_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/label_fecha_nacimiento"
+        android:inputType="date"
+        android:minHeight="48dp"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <Button
+        android:id="@+id/btSelFechaN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt_cambiar_fecha"
+        tools:layout_editor_absoluteX="285dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowFechaNac"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_wide"
+        android:layout_marginTop="@dimen/margin_wide"
+        android:layout_marginEnd="@dimen/margin_wide"
+        app:constraint_referenced_ids="iconCalendario,fecha_nac_edit_text,btSelFechaN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flowSexo" />
+
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flowEscolaridad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_wide"
-        android:layout_marginTop="@dimen/margin_wide"
         android:layout_marginEnd="@dimen/margin_wide"
         android:layout_marginBottom="@dimen/margin_wide"
         app:constraint_referenced_ids="iconEscolaridad,escolaridad_label_text,spinnerEscolaridad"
         app:layout_constraintBottom_toTopOf="@+id/navInferior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/flowSexo"
+        app:layout_constraintTop_toBottomOf="@+id/flowFechaNac"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -203,7 +244,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btSiguiente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
