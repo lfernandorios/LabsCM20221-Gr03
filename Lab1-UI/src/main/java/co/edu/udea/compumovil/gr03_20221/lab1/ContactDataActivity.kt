@@ -5,30 +5,47 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class ContactDataActivity : AppCompatActivity() {
 
-    val finalizarBtn =  findViewById<Button>(R.id.btFinalizar)
-    val telefonoEditText = findViewById<EditText>(R.id.telefono_edit_text)
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_data)
+        val finalizarBtn =  findViewById<Button>(R.id.btFinalizar)
 
         finalizarBtn.setOnClickListener{
             if (validateFields()){
-                intent.getStringExtra("apellidos")?.let { it1 -> sendLog("apellidos", it1) }
-                sendLog("télefono", telefonoEditText.text.toString())
+                Toast.makeText(baseContext, "Registro Éxitoso", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun validateFields(): Boolean {
+        val telefonoEditText = findViewById<EditText>(R.id.telefono_edit_text)
+        val emailEditText = findViewById<EditText>(R.id.email_edit_text)
+        val paisEditText = findViewById<EditText>(R.id.pais_auto_edit_text)
+
         if (telefonoEditText?.text.isNullOrEmpty()) {
-            telefonoEditText?.error = R.string.apellido_msg_validate.toString()
+            telefonoEditText.setError("Requerido")
             return false
         }
+        if (emailEditText?.text.isNullOrEmpty()) {
+            emailEditText.setError("Requerido")
+            return false
+        }
+        if (paisEditText?.text.isNullOrEmpty()) {
+            paisEditText.setError("Requerido")
+            return false
+        }
+        sendLog("Actividad", this.title.toString())
+        sendLog("Télefono", telefonoEditText.text.toString() )
+        sendLog("Email", telefonoEditText.text.toString() )
+        sendLog("Pais", telefonoEditText.text.toString() )
 
         return true
     }

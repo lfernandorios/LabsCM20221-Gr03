@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.helper.widget.Flow
@@ -11,14 +12,12 @@ import java.util.*
 
 class PersonalDataActivity : AppCompatActivity() {
 
-    val apellidos = findViewById<EditText>(R.id.apellidos_edit_text)
-    val pickerDateBtn = findViewById<Button>(R.id.btSelFechaN)
-    val fecha = findViewById<EditText>(R.id.fecha_nac_edit_text)
-    val siguienteBtn = findViewById<Button>(R.id.btFinalizar)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal_data)
+        val pickerDateBtn: Button = findViewById<Button>(R.id.btSelFechaN)
+        val fecha: EditText = findViewById<EditText>(R.id.fecha_nac_edit_text)
+        val siguienteBtn: Button = findViewById<Button>(R.id.btFinalizar)
 
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -33,26 +32,45 @@ class PersonalDataActivity : AppCompatActivity() {
         }
 
         siguienteBtn.setOnClickListener{
-            validateFields()
+            if(validateFields()){
+
+                val intent = Intent(this, ContactDataActivity::class.java)
+                startActivity(intent)
+            }
         }
 
     }
 
-    private fun validateFields(){
+    private fun validateFields(): Boolean {
+        val nombres: EditText = findViewById(R.id.nombres_edit_text)
+        val apellidos: EditText = findViewById(R.id.apellidos_edit_text)
+        val fechaNac: EditText = findViewById(R.id.fecha_nac_edit_text)
+
+        if (nombres?.text.isNullOrEmpty()) {
+            nombres.setError("Requerido")
+            return false
+        }
         if (apellidos?.text.isNullOrEmpty()) {
-            apellidos?.error = R.string.apellido_msg_validate.toString()
-            return
+            apellidos.setError("Requerido")
+            return false
         }
-        sendMessage()
+        if (fechaNac?.text.isNullOrEmpty()) {
+            fechaNac.setError("Requerido")
+            return false
+        }
+
+
+        sendLog("Actividad", this.title.toString())
+        sendLog("Nombres", nombres.text.toString())
+        sendLog("Apellidos", apellidos.text.toString())
+        sendLog("FechaNac", fechaNac.text.toString())
+
+        return true
+
     }
 
-    private fun sendMessage() {
-
-        val message = apellidos.text.toString()
-        val intent = Intent(this, ContactDataActivity::class.java).apply {
-            putExtra("apellidos", message)
-        }
-        startActivity(intent)
+    private fun sendLog(campo: String, valor: String) {
+        Log.i(campo, valor)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

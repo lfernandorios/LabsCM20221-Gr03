@@ -51,6 +51,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="País"
+        android:inputType="textNoSuggestions"
         tools:layout_editor_absoluteX="129dp"
         tools:layout_editor_absoluteY="506dp" />
 
@@ -59,6 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Ciudad"
+        android:inputType="textNoSuggestions"
         tools:layout_editor_absoluteX="131dp"
         tools:layout_editor_absoluteY="433dp" />
 
