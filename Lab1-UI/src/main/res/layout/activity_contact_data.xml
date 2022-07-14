@@ -85,10 +85,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btSiguiente"
+            android:id="@+id/btFinalizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bt_siguiente" />
+            android:text="@string/bt_finalizar" />
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

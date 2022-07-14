@@ -9,8 +9,10 @@
     <string name="label_sexo">Sexo:</string>
     <string name="label_escolaridad">Escolaridad:</string>
     <string name="bt_siguiente">Siguiente</string>
+    <string name="bt_finalizar">Finalizar</string>
     <string name="label_fecha_nacimiento">Fecha Nacimiento</string>
     <string name="bt_cambiar_fecha">Cambiar</string>
+    <string name="apellido_msg_validate">El apellido es requerido</string>
     <string-array name="escolaridad_array">
         <item>(Seleccionar)</item>
         <item>Primaria</item>
