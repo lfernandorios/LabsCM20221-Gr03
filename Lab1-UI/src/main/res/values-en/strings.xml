@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">LabsCM20221-Gr03</string>
+    <string name="label_personal_data">Personal Data</string>
+    <string name="label_conctacto_data">Contact Data</string>
+    <string name="hint_nombres">First Name:</string>
+    <string name="hint_apellidos">Lass Name:</string>
+    <string name="rb_text_mujer">Woman</string>
+    <string name="rb_text_hombre">Man</string>
+    <string name="label_sexo">Sex:</string>
+    <string name="label_escolaridad">Escolaridad:</string>
+    <string name="bt_siguiente">Next</string>
+    <string name="bt_finalizar">Finish</string>
+    <string name="label_fecha_nacimiento">Birth Date</string>
+    <string name="bt_cambiar_fecha">Change</string>
+    <string name="apellido_msg_validate">Last Name cannot be empty</string>
+    <string-array name="escolaridad_array">
+        <item>(Select)</item>
+        <item>School</item>
+        <item>High School</item>
+        <item>Tecnique</item>
+        <item>Tecnológica</item>
+        <item>Bachelor</item>
+        <item>Post</item>
+        <item>Other</item>
+    </string-array>
+</resources>
