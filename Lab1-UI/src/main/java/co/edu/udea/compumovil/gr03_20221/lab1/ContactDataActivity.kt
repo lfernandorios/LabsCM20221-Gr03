@@ -45,7 +45,7 @@ class ContactDataActivity : AppCompatActivity() {
         sendLog("Actividad", this.title.toString())
         sendLog("Télefono", telefonoEditText.text.toString() )
         sendLog("Email", telefonoEditText.text.toString() )
-        sendLog("Pais", telefonoEditText.text.toString() )
+    sendLog("Pais", telefonoEditText.text.toString() )
 
         return true
     }

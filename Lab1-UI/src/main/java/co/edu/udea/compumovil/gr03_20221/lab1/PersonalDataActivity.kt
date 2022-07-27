@@ -70,7 +70,7 @@ class PersonalDataActivity : AppCompatActivity() {
     }
 
     private fun sendLog(campo: String, valor: String) {
-        Log.i(campo, valor)
+        Log.i( campo, valor)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
